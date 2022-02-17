@@ -16,7 +16,7 @@ const ProductInformationModal = () => {
   };
   const getUsersProducts = () => {
     axios
-      .get(`http://localhost:5000/product/byuser/${userId}`)
+      .get(`/product/byuser/${userId}`)
       .then((result) => {
         console.log(result);
         setAllPrdcts(result.data.results);

@@ -12,7 +12,7 @@ const UserProducts = () => {
   const userId = localStorage.getItem("User");
   const getUsersProducts = () => {
     axios
-      .get(`http://localhost:5000/product/byuser/${userId}`)
+      .get(`/product/byuser/${userId}`)
       .then((result) => {
         console.log(result);
         setAllPrdcts(result.data.results);
@@ -23,7 +23,7 @@ const UserProducts = () => {
   };
   const softDelete = (id) => {
     axios
-      .post(`http://localhost:5000/softDel/${id}`, { userId })
+      .post(`/softDel/${id}`, { userId })
       .then((result) => {
         console.log(result);
         getUsersProducts();
@@ -37,7 +37,7 @@ const UserProducts = () => {
     let ids = id.toString();
     console.log(ids);
     axios
-      .put(`http://localhost:5000/product/reject/${ids}`)
+      .put(`/product/reject/${ids}`)
       .then((result) => {
         console.log(result);
         getUsersProducts();
@@ -48,7 +48,7 @@ const UserProducts = () => {
   };
   const getexchangeproduct = (idex) => {
     axios
-      .get(`http://localhost:5000/product/show/${idex}`)
+      .get(`/product/show/${idex}`)
       .then((result) => {
         console.log(result);
         setShow(result.data.results);

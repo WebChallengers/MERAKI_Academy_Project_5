@@ -66,7 +66,7 @@ const NewProduct = () => {
     try {
       console.log(Image);
       const result = await axios.post(
-        "http://localhost:5000/product",
+        "/product",
         {
           Product_Name,
           Price,

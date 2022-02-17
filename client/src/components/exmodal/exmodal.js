@@ -13,7 +13,7 @@ const Exmodal = () => {
  
   const getUsersProducts = () => {
     axios
-      .get(`http://localhost:5000/product/byuser/${userId}`)
+      .get(`/product/byuser/${userId}`)
       .then((result) => {
         console.log(result);
         setproductId(result.data.results);
@@ -58,7 +58,7 @@ const Exmodal = () => {
     let ids = id.toString();
     console.log(ids);
     axios
-      .put(`http://localhost:5000/product/exchange/${ids}`)
+      .put(`/product/exchange/${ids}`)
       .then((result) => {
         console.log(result);
       })
@@ -75,7 +75,7 @@ const Exmodal = () => {
     const Product_Exchange=ids
     console.log()
     axios
-      .put(`http://localhost:5000/product/exhange2/${idex}`,{Product_Exchange})
+      .put(`/product/exhange2/${idex}`,{Product_Exchange})
       .then((result) => {
         console.log(result);
       })

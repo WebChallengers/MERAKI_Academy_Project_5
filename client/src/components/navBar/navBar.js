@@ -20,7 +20,7 @@ const NavBar = () => {
   const searchSmallerFunc = () => {
     console.log("inside search");
     axios
-      .get(`http://localhost:5000/search/${Product_Name}`)
+      .get(`/search/${Product_Name}`)
       .then((result) => {
         console.log(result.data.result);
         setFound(result.data.result);

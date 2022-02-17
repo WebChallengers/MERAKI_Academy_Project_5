@@ -39,7 +39,7 @@ const Home = () => {
   const searchSmallerFunc = () => {
     console.log("inside search");
     axios
-      .get(`http://localhost:5000/search/${Product_Name}`)
+      .get(`/search/${Product_Name}`)
       .then((result) => {
         console.log(result.data.result);
         setFound(result.data.result);
@@ -53,7 +53,7 @@ const Home = () => {
   //======================================================================
   const allProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/product");
+      const res = await axios.get("/product");
       console.log(User);
       if (res.data.success) {
         dispatch(setProducts(res.data.results));
@@ -76,7 +76,7 @@ const Home = () => {
   //=====================================================================
   const updateArticle = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/product/${id}`, {
+      await axios.put(`/product/${id}`, {
         Product_Name,
         Description,
         Price,
@@ -98,7 +98,7 @@ const Home = () => {
   //===============================================
   const deleteproduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/product/${id}`);
+      await axios.delete(`/product/${id}`);
       allProducts();
       dispatch(deletePorduct(id));
     } catch (error) {

@@ -14,7 +14,7 @@ const AllCategories = () => {
 
   const GetCategory = (Category) => {
     axios
-      .get(`http://localhost:5000/category/${Category}`)
+      .get(`/category/${Category}`)
       .then((result) => {
         console.log(result);
       })

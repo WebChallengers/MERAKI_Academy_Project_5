@@ -11,7 +11,7 @@ const Phones = () => {
   }, []);
   const GetCategory = async (category) => {
     await axios
-      .get(`http://localhost:5000/category/${category}`)
+      .get(`/category/${category}`)
       .then((result) => {
         console.log(result);
         setFound(result.data.result);

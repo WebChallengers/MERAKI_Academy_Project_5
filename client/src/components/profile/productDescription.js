@@ -7,7 +7,7 @@ const AfterWePressMore = () => {
   const prodcutId = localStorage.getItem("idForXchange");
   const getProductsInfo = () => {
     axios
-      .get(`http://localhost:5000/product/byname/${productName}`, { prodcutId })
+      .get(`/product/byname/${productName}`, { prodcutId })
       .then((result) => {
         console.log(result);
         setXchangedItem(result);
@@ -18,7 +18,7 @@ const AfterWePressMore = () => {
   };
   const getexchangeproduct = (idex) => {
     axios
-      .get(`http://localhost:5000/product/show/${xchangedItem}`)
+      .get(`/product/show/${xchangedItem}`)
       .then((result) => {
         console.log(result);
         setProductInfo(result);

@@ -36,7 +36,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:5000/login", {
+      const res = await axios.post("/login", {
         email,
         password,
       });
@@ -58,7 +58,7 @@ const Login = () => {
   const addNewUser = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post("http://localhost:5000/users", {
+      const result = await axios.post("/users", {
         Username,
         Phone_number,
         email,

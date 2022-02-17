@@ -49,7 +49,7 @@ const NewOrder = () => {
         Category,
       };
       const result = await axios.post(
-        "http://localhost:5000/orders/add",
+        "/orders/add",
         {
           Product_Name,
           Product_Price,

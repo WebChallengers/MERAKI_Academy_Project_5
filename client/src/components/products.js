@@ -25,7 +25,7 @@ const ShowProduct = () => {
 
   const allProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/product");
+      const res = await axios.get("/product");
       console.log(res);
       if (res.data.success) {
         dispatch(setProducts(res.data.results));

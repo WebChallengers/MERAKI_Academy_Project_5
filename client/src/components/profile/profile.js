@@ -21,7 +21,7 @@ const Profile = () => {
   };
   const getAllInfo = (req, res) => {
     axios
-      .get(`http://localhost:5000/profile/${userId}`)
+      .get(`/profile/${userId}`)
       .then((result) => {
         console.log(result);
         setStatus(result.data.result);
@@ -61,7 +61,7 @@ const Profile = () => {
   const profilePicutue = (img) => {
     console.log("USER ID : ", userId, " \nIMAGE URL : ", img);
     axios
-      .put(`http://localhost:5000/profile/${userId}`, { img })
+      .put(`/profile/${userId}`, { img })
       .then((nateeja) => {
         console.log(nateeja);
       })
@@ -72,7 +72,7 @@ const Profile = () => {
 
   const getUsersProducts = () => {
     axios
-      .get(`http://localhost:5000/product/byuser/${userId}`)
+      .get(`/product/byuser/${userId}`)
       .then((result) => {
         console.log(result);
       })
@@ -83,7 +83,7 @@ const Profile = () => {
   const getproductbyuserid = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/product/byuser`,
+        `/product/byuser`,
         userId
       );
       console.log(userId);
