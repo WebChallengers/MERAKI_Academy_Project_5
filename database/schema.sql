@@ -1,7 +1,7 @@
-create database MERAKI_Academy_Project_5;
-use MERAKI_Academy_Project_5;
+-- create database MERAKI_Academy_Project_5;
+use sql6473598;
 
-create table user (
+create table users (
 id INT AUTO_INCREMENT NOT NULL,
 Username VARchar (255) UNIQUE,
 Phone_number INT,
@@ -25,7 +25,7 @@ Price INT,
 Category VARchar (255),
 softDelete INT DEFAULT 0,
 Product_Exchange VARCHAR(255),
-FOREIGN KEY (userId) REFERENCES user(id),
+FOREIGN KEY (userId) REFERENCES users(id),
 Primary Key (id)
 );
 

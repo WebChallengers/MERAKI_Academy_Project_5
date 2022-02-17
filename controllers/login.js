@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const login = (req, res) => {
   const password = req.body.password;
   const email = req.body.email.toLowerCase(); // toLowerCase() feature
-  const query = `SELECT * FROM user WHERE email=?`;
+  const query = `SELECT * FROM users WHERE email=?`;
   const data = [email];
   connection.query(query, data, (err, results) => {
     console.log(results)

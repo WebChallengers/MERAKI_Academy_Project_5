@@ -9,7 +9,7 @@ const createNewUser = async (req, res) => {
 
   const encryptedPassword = await bcrypt.hash(password, saltRounds);
 
-  const query = `INSERT INTO user (Username, Phone_number, password, email) VALUES (?,?,?,?)`;
+  const query = `INSERT INTO users (Username, Phone_number, password, email) VALUES (?,?,?,?)`;
   const data = [Username, Phone_number, encryptedPassword, email];
   connection.query(query, data, (err, results) => {
     if (err) {
