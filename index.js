@@ -7,7 +7,7 @@ const path = require("path");
 app.use(cors());
 
 app.use(express.json());
-
+const PORT = 5000;
 
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static('client/build'));
@@ -18,7 +18,7 @@ app.get('*',(req, res) => {
 
 
 
-const PORT = 5000;
+
 
 // Import Routers
 const categoryRouter = require("./routes/categoryR");
