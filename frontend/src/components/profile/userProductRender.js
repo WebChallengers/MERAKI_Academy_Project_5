@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import ProductInformationModal from "./productInfo";
+import Modal from "react-modal/lib/components/Modal";
 import AfterWePressMore from "./productDescription";
 
 import "./profile.css";
@@ -10,11 +11,23 @@ const UserProducts = () => {
   const [id, setId] = useState("");
   const [Show, setShow] = useState([]);
   const userId = localStorage.getItem("User");
+  //===================================================
+  const [infoModal, setInfoModal] = useState(false);
+  const [allPrdctsS, setAllPrdctsS] = useState([]);
+  const setInfoModalToTrue = () => {
+    setInfoModal(true);
+  };
+  const setInfoModalToFalse = () => {
+    setInfoModal(false);
+  };
+
+  //===================================================
   const getUsersProducts = () => {
     axios
       .get(`http://localhost:5000/product/byuser/${userId}`)
       .then((result) => {
         console.log(result);
+        setAllPrdctsS(result.data.results);
         setAllPrdcts(result.data.results);
       })
       .catch((err) => {
@@ -77,10 +90,9 @@ const UserProducts = () => {
               Product name : {elem.Product_Name} <br />
               Product state : ({elem.state_product}) <br />
               <button
-                className="profilerenderbutton"
+                key={i}
                 onClick={() => {
-                  <ProductInformationModal />;
-                  Swal.fire("description :", elem.Description, elem.Price);
+                  setInfoModalToTrue();
                   const ProductName = localStorage.setItem(
                     "productName",
                     elem.Product_Name
@@ -91,8 +103,12 @@ const UserProducts = () => {
                   );
                 }}
               >
-                More
+                more
               </button>
+              <Modal isOpen={infoModal}>
+                <button onClick={setInfoModalToFalse}>close</button>
+                <AfterWePressMore />
+              </Modal>
               {elem.state_product == "pending" && (
                 <>
                   <button

@@ -274,10 +274,11 @@ const getproductexhange = (req, res) => {
 };
 
 const productName = (req, res) => {
-  const productName = req.params.productName;
-  const { productId } = req.body;
-  const query = `select Product_Exchange from products where Product_Name=? and id=?`;
-  const data = [productName, productId];
+  const productId = req.params.productId;
+  // const { productName } = req.body;
+  console.log(productName, productId);
+  const query = `select Product_Exchange from products where id=?`;
+  const data = [productId];
   connection.query(query, data, (err, result) => {
     if (err) {
       console.log(err);

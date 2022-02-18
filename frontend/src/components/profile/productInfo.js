@@ -32,6 +32,8 @@ const ProductInformationModal = () => {
         allPrdcts.map((elem, i) => {
           <div key={i}>
             <button
+              // id="moreButton"
+              className="profilerenderbutton"
               key={i}
               onClick={() => {
                 setInfoModalToTrue();
@@ -47,7 +49,6 @@ const ProductInformationModal = () => {
             >
               more
             </button>
-            ;
           </div>;
         })}
 

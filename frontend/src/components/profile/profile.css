@@ -3,7 +3,19 @@
   font-family: cursive;
 }
 
-
+#moreButton {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border-color: #24292f;
+  background-color: #24292f;
+  color: #e5e5e5;
+  font-family: cursive;
+  font-size: small;
+}
 
 .profilebutton {
   width: 20%;
@@ -78,21 +90,21 @@
   justify-content: center;
 }
 
-img{
-  height:auto;
-  width: 40% ;
-  margin-top:10% ;
+img {
+  height: auto;
+  width: 40%;
+  margin-top: 10%;
 }
 
-.userProductRender{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: cursive;
+.userProductRender {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
 }
 
-.profilerenderbutton{
+.profilerenderbutton {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -112,7 +124,7 @@ img{
   background-color: #e5e5e5;
 }
 
-.profileclosebutton{
+.profileclosebutton {
   width: 1%;
   padding: 12px 20px;
   margin: 8px 0;

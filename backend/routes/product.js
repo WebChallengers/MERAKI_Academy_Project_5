@@ -26,7 +26,7 @@ productRouter.put("/exchange/:id", updateproductByname);
 productRouter.put("/exhange2/:id", updateproductexchange);
 productRouter.put("/reject/:id", updateproductrejected);
 productRouter.get("/show/:xchangedItem", getproductexhange);
-productRouter.get("/byname/:productName", productName);
+productRouter.get("/byname/:productId", productName);
 
 // productRouter.delete("/:id", deleteArticleById);
 

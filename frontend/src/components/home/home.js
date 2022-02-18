@@ -105,43 +105,45 @@ const Home = () => {
       console.log(error);
     }
   };
-  const confirmDelete=(id)=>{
-    const swalWithBootstrapButtons =  Swal.mixin({
+  const confirmDelete = (id) => {
+    const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
       },
-      buttonsStyling: false
-    })
-    
-    swalWithBootstrapButtons.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
-        swalWithBootstrapButtons.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success',
-          deleteproduct(id)
-        )
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          'Cancelled',
-          'Your imaginary file is safe :)',
-          'error'
-        )
-      }
-    })
-  }
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your file has been deleted.",
+            "success",
+            deleteproduct(id)
+          );
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your imaginary file is safe :)",
+            "error"
+          );
+        }
+      });
+  };
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
@@ -213,12 +215,12 @@ const Home = () => {
                     </div>
                     <div>
                       <button
-                        className="homebuttons"
+                        id="Exchange"
                         onClick={() => {
                           setModalIsOpenToTrue(element.id);
                         }}
                       >
-                        Click to Open Modal
+                        Exchange{" "}
                       </button>
                     </div>
 
@@ -258,41 +260,36 @@ const Home = () => {
                       >
                         Update{" "}
                       </button>
-                      <div className="stars">
-                        <ReactStars
-                          count={5}
-                          onChange={ratingChanged}
-                          size={24}
-                          activeColor="#FFD700"
-                        />
-                      </div>
                     </>
-                  )}
+                  )}{" "}
+                  <div className="stars">
+                    <ReactStars
+                      count={5}
+                      onChange={ratingChanged}
+                      size={24}
+                      activeColor="#FFD700"
+                    />
+                  </div>
                 </div>
               );
             })}
         </div>
         <div className="founditem">
-          {found.length ? (
-            found &&
-            found.map((elem, i) => {
-              return (
-                <div>
+          {found.length
+            ? found &&
+              found.map((elem, i) => {
+                return (
                   <div>
-                    <img className="productimage" src={elem.Image} />
+                    <div>
+                      <img className="productimage" src={elem.Image} />
+                    </div>
+                    <div>{elem.Product_Name}</div>
+                    <div>{elem.Description}</div>
+                    <div>{elem.Category}</div>
                   </div>
-                  <div>{elem.Product_Name}</div>
-                  <div>{elem.Description}</div>
-                  <div>{elem.Category}</div>
-                </div>
-              );
-            })
-          ) : (
-            <div className="Sorry">
-              {" "}
-              <h2>Sorry, there are no items that match your search</h2>{" "}
-            </div>
-          )}
+                );
+              })
+            : null}
         </div>
       </div>
     </>
